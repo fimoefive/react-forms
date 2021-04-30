@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getStudents } from '../helpers/data/studentData';
 import StudentCard from '../components/StudentCard';
 import StudentForm from '../components/StudentForm';
