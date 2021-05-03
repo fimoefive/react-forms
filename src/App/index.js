@@ -14,8 +14,8 @@ function App() {
   return (
     <>
       <div className='App'>
-        <h2>Student Form</h2>
-        <StudentForm formTitle="Add Student"
+        <h2>React Form</h2>
+        <StudentForm formTitle="Student Form"
           setStudents={setStudents}
         />
         <hr />

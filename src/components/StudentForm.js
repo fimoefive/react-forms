@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Form,
-  Label,
-  Input,
-  FormGroup
+  FormGroup, Input, Label
 } from 'reactstrap';
-import PropTypes from 'prop-types';
 import { addStudent } from '../helpers/data/studentData';
 
 function StudentForm({ formTitle, setStudents }) {
@@ -31,13 +29,15 @@ function StudentForm({ formTitle, setStudents }) {
   return (
     <>
       <div className='student-form'>
-        <Form id='addStudentForm' autoComplete='off' onSubmit={handleSubmit}>
+        <Form
+          id='addStudentForm'
+          autoComplete='off'
+          onSubmit={handleSubmit}>
           <h2>{formTitle}</h2>
           <FormGroup>
             {/* <label htmlFor="name">Name: </label> */}
-            <Label for="name">NAME:</Label>
+            <Label>NAME:</Label>
             <Input name='name'
-              id='name'
               type="text"
               placeholder="Enter a Student Name"
               value={student.name}
@@ -46,9 +46,10 @@ function StudentForm({ formTitle, setStudents }) {
           </FormGroup>
 
           <FormGroup>
-            <h2>Teacher</h2>
-            <Label>Name: </Label>
-            <Input name='name' type="text" placeholder="Name"
+            <Label>Teacher: </Label>
+            <Input name='teacher'
+              type='text'
+              placeholder='Enter Teacher Name'
               value={student.teacher}
               onChange={handleInput}
             />
@@ -57,7 +58,9 @@ function StudentForm({ formTitle, setStudents }) {
           <FormGroup>
             <h2>Grade</h2>
             <Label>Grade: </Label>
-            <Input name='name' type="text" placeholder="Grade"
+            <Input name='grade'
+              type='number'
+              placeholder="Enter Grade"
               value={student.grade}
               onChange={handleInput}
             />

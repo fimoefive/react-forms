@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
   Card,
@@ -7,7 +7,6 @@ import {
   CardTitle
 } from 'reactstrap';
 import { deleteStudent } from '../helpers/data/studentData';
-// import StudentForm from './StudentForm';
 
 const StudentCard = ({
   firebaseKey,
