@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import NavBar from '../components/NavBar';
-import StudentCard from '../components/StudentCard';
+// import StudentCard from '../components/StudentCard';
+// import StudentForm from '../components/StudentForm';
 import { getStudents } from '../helpers/data/studentData';
-import StudentForm from '../components/StudentForm';
 import Routes from '../helpers/Routes';
 import './App.scss';
 
@@ -13,7 +14,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    getStudents().then((resp) => setStudents(resp));
+    getStudents().then(setStudents);
   }, []);
 
   useEffect(() => {
@@ -35,7 +36,15 @@ function App() {
 
   return (
     <>
-      <div className='App'>
+      <Router>
+        <NavBar user={user} />
+        <Routes
+          user={user}
+          students={students}
+          setStudents={setStudents}
+        />
+      </Router>
+      {/* <div className='App'>
         <h2>React Form</h2>
         <StudentForm formTitle="Student Form"
           setStudents={setStudents}
@@ -46,15 +55,15 @@ function App() {
             <StudentCard
               key={studentInfo.firebaseKey}
               firebaseKey={studentInfo.firebaseKey}
-              //  name={studentInfo.name}
-              //   teacher={studentInfo.teacher}
-              //   grade={Number(studentInfo.grade)}
+               name={studentInfo.name}
+                teacher={studentInfo.teacher}
+                grade={Number(studentInfo.grade)}
               setStudents={setStudents}
               {...studentInfo}
             />
           ))}
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

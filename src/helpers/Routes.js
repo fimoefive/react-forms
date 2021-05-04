@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -8,11 +7,11 @@ import Students from '../views/Students';
 import SingleStudent from '../views/SingleStudent';
 import NotFound from '../views/NotFound';
 
-export default function Routes({ students, setStudents }) {
+export default function Routes({ user, students, setStudents }) {
   return (
     <div>
       <Switch>
-        <Route exact path='/' component={Home} />
+        <Route exact path='/' component={() => <Home user={user} />} />
         <Route
           exact
           path='/students'
@@ -34,5 +33,6 @@ export default function Routes({ students, setStudents }) {
 
 Routes.propTypes = {
   students: PropTypes.array.isRequired,
-  setStudents: PropTypes.func.isRequired
+  setStudents: PropTypes.func.isRequired,
+  user: PropTypes.any
 };
