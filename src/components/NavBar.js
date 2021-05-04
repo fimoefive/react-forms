@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -10,14 +9,14 @@ import {
   NavItem,
   Button
 } from 'reactstrap';
-import { signInuser, signOutUser } from '../helpers/auth';
+import { signInUser, signOutUser } from '../helpers/auth';
 
-const NavBar = () => {
+const NavBar = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
-  return (
+  const authenticated = () => (
     <>
       <NavItem>
         <Link className="nav-link" to="/add-student">Add Student</Link>
@@ -38,16 +37,17 @@ const NavBar = () => {
             {user && authenticated()}
             <NavItem>
               {
+
                 user !== null
                 && <NavItem>
                   {
                     user
-                      ? <Button color='info' onClick={signOutUser}>Sign Out</Button>
+                      ? <Button color='danger' onClick={signOutUser}>Sign Out</Button>
                       : <Button color='info' onClick={signInUser}>Sign Out</Button>
                   }
+                </NavItem>
               }
             </NavItem>
-              </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
@@ -55,7 +55,7 @@ const NavBar = () => {
   );
 };
 
-NaveBar.propTypes = {
+NavBar.propTypes = {
   user: PropTypes.any,
 };
 
