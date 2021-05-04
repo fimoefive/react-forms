@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase/app';
+import 'firebase/auth';
+import NavBar from '../components/NavBar';
 import StudentCard from '../components/StudentCard';
 import { getStudents } from '../helpers/data/studentData';
 import StudentForm from '../components/StudentForm';
+import Routes from '../helpers/Routes';
 import './App.scss';
 
 function App() {
