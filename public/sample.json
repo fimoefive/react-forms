@@ -1,0 +1,15 @@
+{
+const students = [
+{
+  firebaseKey: '',
+  name: 'Martin',
+  grade: 90,
+  teacher: 'Dr. T'
+},
+  {firebaseKey: '',
+  name: 'Martin',
+  grade: 90,
+  teacher: "Dr. T"
+}
+];
+}

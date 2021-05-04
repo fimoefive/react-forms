@@ -1,14 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { getStudents } from '../helpers/data/studentData';
+import React, { useEffect, useState } from 'react';
+import firebase from 'firebase/app';
 import StudentCard from '../components/StudentCard';
+import { getStudents } from '../helpers/data/studentData';
 import StudentForm from '../components/StudentForm';
 import './App.scss';
 
 function App() {
   const [students, setStudents] = useState([]);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     getStudents().then((resp) => setStudents(resp));
+  }, []);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((authed) => {
+      if (authed) {
+        const userInfoObj = {
+          fullName: authed.displayName,
+          profileImage: authed.photoURL,
+          uid: authed.uid,
+          user: authed.email.split('@')[0]
+        };
+        setUser(userInfoObj);
+      } else if (user || user === null) {
+        // do something else
+        setUser(false);
+      }
+    });
   }, []);
 
   return (
@@ -24,10 +43,11 @@ function App() {
             <StudentCard
               key={studentInfo.firebaseKey}
               firebaseKey={studentInfo.firebaseKey}
-              name={studentInfo.name}
-              teacher={studentInfo.teacher}
-              grade={Number(studentInfo.grade)}
+              //  name={studentInfo.name}
+              //   teacher={studentInfo.teacher}
+              //   grade={Number(studentInfo.grade)}
               setStudents={setStudents}
+              {...studentInfo}
             />
           ))}
         </div>

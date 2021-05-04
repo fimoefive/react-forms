@@ -11,7 +11,7 @@ function StudentForm({ formTitle, setStudents }) {
   const [student, setStudent] = useState({
     name: '',
     teacher: '',
-    grade: 0,
+    grade: '',
   });
 
   const handleInput = (e) => {
@@ -35,33 +35,34 @@ function StudentForm({ formTitle, setStudents }) {
           onSubmit={handleSubmit}>
           <h2>{formTitle}</h2>
           <FormGroup>
-            {/* <label htmlFor="name">Name: </label> */}
             <Label>NAME:</Label>
-            <Input name='name'
+            <Input
+              name='name'
+              value={student.name}
               type="text"
               placeholder="Enter a Student Name"
-              value={student.name}
               onChange={handleInput}
             />
           </FormGroup>
 
           <FormGroup>
-            <Label>Teacher: </Label>
-            <Input name='teacher'
+            <Label>Teacher:</Label>
+            <Input
+              name='teacher'
+              value={student.teacher}
               type='text'
               placeholder='Enter Teacher Name'
-              value={student.teacher}
               onChange={handleInput}
             />
           </FormGroup>
 
           <FormGroup>
-            <h2>Grade</h2>
             <Label>Grade: </Label>
-            <Input name='grade'
-              type='number'
-              placeholder="Enter Grade"
+            <Input
+              name='grade'
               value={student.grade}
+              type='number'
+              placeholder='Enter Grade'
               onChange={handleInput}
             />
           </FormGroup>
