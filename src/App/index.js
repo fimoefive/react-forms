@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-// import StudentCard from '../components/StudentCard';
-// import StudentForm from '../components/StudentForm';
 import { getStudents } from '../helpers/data/studentData';
 import Routes from '../helpers/Routes';
 import './App.scss';
@@ -44,26 +42,6 @@ function App() {
           setStudents={setStudents}
         />
       </Router>
-      {/* <div className='App'>
-        <h2>React Form</h2>
-        <StudentForm formTitle="Student Form"
-          setStudents={setStudents}
-        />
-        <hr />
-        <div className="card-container">
-          {students.map((studentInfo) => (
-            <StudentCard
-              key={studentInfo.firebaseKey}
-              firebaseKey={studentInfo.firebaseKey}
-               name={studentInfo.name}
-                teacher={studentInfo.teacher}
-                grade={Number(studentInfo.grade)}
-              setStudents={setStudents}
-              {...studentInfo}
-            />
-          ))}
-        </div>
-      </div> */}
     </>
   );
 }
