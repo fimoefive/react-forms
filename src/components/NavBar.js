@@ -27,8 +27,6 @@ const NavBar = ({ user }) => {
             <NavItem>
               <Link className="nav-link" to="/students">Student Cards</Link>
             </NavItem>
-            {/* {user && authenticated()}
-            <NavItem> */}
             {
 
               user !== null
@@ -40,7 +38,6 @@ const NavBar = ({ user }) => {
                 }
               </NavItem>
             }
-            {/* </NavItem> */}
           </Nav>
         </Collapse>
       </Navbar>
