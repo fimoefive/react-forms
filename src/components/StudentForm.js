@@ -28,6 +28,9 @@ function StudentForm({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (student.firebaseKey) {
+
+    }
     addStudent(student).then((studentArray) => setStudents(studentArray));
   };
 
