@@ -5,13 +5,18 @@ import {
   Form,
   FormGroup, Input, Label
 } from 'reactstrap';
-import { addStudent } from '../helpers/data/studentData';
+import { addStudent, updateStudent } from '../helpers/data/studentData';
 
-function StudentForm({ formTitle, setStudents }) {
+function StudentForm({
+  formTitle, setStudents,
+  name, teacher, grade,
+  firebaseKey
+}) {
   const [student, setStudent] = useState({
-    name: '',
-    teacher: '',
-    grade: '',
+    name: name || '',
+    teacher: teacher || '',
+    grade: grade || 0,
+    firebase: firebaseKey || null
   });
 
   const handleInput = (e) => {
@@ -75,6 +80,10 @@ function StudentForm({ formTitle, setStudents }) {
 
 StudentForm.propTypes = {
   formTitle: PropTypes.string.isRequired,
+  firebaseKey: PropTypes.string,
+  name: PropTypes.string,
+  teacher: PropTypes.string,
+  grade: PropTypes.number,
   setStudents: PropTypes.func
 };
 

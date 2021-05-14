@@ -13,8 +13,8 @@ import StudentForm from './StudentForm';
 const StudentCard = ({
   firebaseKey,
   name,
-  grade,
   teacher,
+  grade,
   setStudents
 }) => {
   const [editing, setEditing] = useState(false);
@@ -51,11 +51,11 @@ const StudentCard = ({
       {
         editing && <StudentForm
           formTitle='Edit Student'
-          setStudents={setStudents}
           firebaseKey={firebaseKey}
           name={name}
-          grade={grade}
           teacher={teacher}
+          grade={grade}
+          setStudents={setStudents}
         />
       }
     </Card>
