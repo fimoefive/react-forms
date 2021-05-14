@@ -29,65 +29,65 @@ function StudentForm({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (student.firebaseKey) {
+      updateStudent(student).then((studentArray) => setStudents(studentArray));
+    } else {
+      addStudent(student).then((studentArray) => setStudents(studentArray));
+    };
 
-    }
-    addStudent(student).then((studentArray) => setStudents(studentArray));
+    return (
+      <>
+        <div className='student-form'>
+          <Form
+            id='addStudentForm'
+            autoComplete='off'
+            onSubmit={handleSubmit}>
+            <h2>{formTitle}</h2>
+            <FormGroup>
+              <Label>NAME:</Label>
+              <Input
+                name='name'
+                value={student.name}
+                type="text"
+                placeholder="Enter a Student Name"
+                onChange={handleInput}
+              />
+            </FormGroup>
+
+            <FormGroup>
+              <Label>Teacher:</Label>
+              <Input
+                name='teacher'
+                value={student.teacher}
+                type='text'
+                placeholder='Enter Teacher Name'
+                onChange={handleInput}
+              />
+            </FormGroup>
+
+            <FormGroup>
+              <Label>Grade: </Label>
+              <Input
+                name='grade'
+                value={student.grade}
+                type='number'
+                placeholder='Enter Grade'
+                onChange={handleInput}
+              />
+            </FormGroup>
+            <Button type="submit">Submit</Button>
+          </Form>
+        </div>
+      </>
+    );
+  }
+
+  StudentForm.propTypes = {
+    formTitle: PropTypes.string.isRequired,
+    firebaseKey: PropTypes.string,
+    name: PropTypes.string,
+    teacher: PropTypes.string,
+    grade: PropTypes.number,
+    setStudents: PropTypes.func
   };
 
-  return (
-    <>
-      <div className='student-form'>
-        <Form
-          id='addStudentForm'
-          autoComplete='off'
-          onSubmit={handleSubmit}>
-          <h2>{formTitle}</h2>
-          <FormGroup>
-            <Label>NAME:</Label>
-            <Input
-              name='name'
-              value={student.name}
-              type="text"
-              placeholder="Enter a Student Name"
-              onChange={handleInput}
-            />
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Teacher:</Label>
-            <Input
-              name='teacher'
-              value={student.teacher}
-              type='text'
-              placeholder='Enter Teacher Name'
-              onChange={handleInput}
-            />
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Grade: </Label>
-            <Input
-              name='grade'
-              value={student.grade}
-              type='number'
-              placeholder='Enter Grade'
-              onChange={handleInput}
-            />
-          </FormGroup>
-          <Button type="submit">Submit</Button>
-        </Form>
-      </div>
-    </>
-  );
-}
-
-StudentForm.propTypes = {
-  formTitle: PropTypes.string.isRequired,
-  firebaseKey: PropTypes.string,
-  name: PropTypes.string,
-  teacher: PropTypes.string,
-  grade: PropTypes.number,
-  setStudents: PropTypes.func
-};
-
-export default StudentForm;
+  export default StudentForm;
