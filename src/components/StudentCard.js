@@ -66,7 +66,7 @@ StudentCard.propTypes = {
   firebaseKey: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   teacher: PropTypes.string.isRequired,
-  grade: PropTypes.string.isRequired,
+  grade: PropTypes.number.isRequired,
   setStudents: PropTypes.func
 };
 
