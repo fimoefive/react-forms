@@ -14,17 +14,6 @@ const NavBar = ({ user }) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  // const authenticated = () => (
-  //   <>
-  //     <NavItem>
-  //       <Link className="nav-link" to="/add-student">Add Student</Link>
-  //     </NavItem>
-  //     <NavItem>
-  //       <Link className="nav-link" to="/students">Student Cards</Link>
-  //     </NavItem>
-  //   </>
-  // );
-
   return (
     <div>
       <Navbar color="light" light expand="md">
