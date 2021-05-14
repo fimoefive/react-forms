@@ -34,6 +34,14 @@ function StudentForm({
       addStudent(student).then((studentArray) => setStudents(studentArray));
     };
 
+    // Clears Input Fields
+    setStudent({
+      name: '',
+      teacher: '',
+      grade: '',
+      firebaseKey: null
+    });
+
     return (
       <>
         <div className='student-form'>
