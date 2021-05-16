@@ -54,11 +54,12 @@ const StudentCard = ({
       {
         editing && <StudentForm
           formTitle='Edit Student'
+          setStudents={setStudents}
           firebaseKey={firebaseKey}
           name={name}
           teacher={teacher}
           grade={grade}
-          setStudents={setStudents}
+
         />
       }
     </Card>

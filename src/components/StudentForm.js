@@ -19,7 +19,7 @@ const StudentForm = ({
   const [student, setStudent] = useState({
     name: name || '',
     teacher: teacher || '',
-    grade: grade || 0,
+    grade: grade || '',
     firebase: firebaseKey || null
   });
 
@@ -106,11 +106,11 @@ const StudentForm = ({
 
 StudentForm.propTypes = {
   formTitle: PropTypes.string.isRequired,
+  setStudents: PropTypes.func,
   firebaseKey: PropTypes.string,
   name: PropTypes.string,
   teacher: PropTypes.string,
-  grade: PropTypes.number,
-  setStudents: PropTypes.func
+  grade: PropTypes.number
 };
 
 export default StudentForm;
