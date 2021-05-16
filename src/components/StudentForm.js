@@ -35,7 +35,7 @@ const StudentForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (student.firebaseKey) {
-      updateStudent(student).then((studentArray) => setStudents(studentArray));
+      updateStudent(student).then(setStudents);
     } else {
       addStudent(student).then((response) => {
         setStudents(response);
@@ -58,12 +58,15 @@ const StudentForm = ({
         <Form
           id='addStudentForm'
           autoComplete='off'
-          onSubmit={handleSubmit}>
+          onSubmit={handleSubmit}
+        >
           <h2>{formTitle}</h2>
+
           <FormGroup>
             <Label>NAME:</Label>
             <Input
               name='name'
+              id='name'
               value={student.name}
               type="text"
               placeholder="Enter a Student Name"
@@ -75,6 +78,7 @@ const StudentForm = ({
             <Label>Teacher:</Label>
             <Input
               name='teacher'
+              id='teacher'
               value={student.teacher}
               type='text'
               placeholder='Enter Teacher Name'
@@ -86,6 +90,7 @@ const StudentForm = ({
             <Label>Grade: </Label>
             <Input
               name='grade'
+              id='grade'
               value={student.grade}
               type='number'
               placeholder='Enter Grade'
