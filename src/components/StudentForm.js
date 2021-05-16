@@ -19,7 +19,7 @@ const StudentForm = ({
   const [student, setStudent] = useState({
     name: name || '',
     teacher: teacher || '',
-    grade: grade || '',
+    grade: grade || 0,
     firebase: firebaseKey || null
   });
 
@@ -31,6 +31,7 @@ const StudentForm = ({
   };
 
   const history = useHistory();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (student.firebaseKey) {
@@ -99,7 +100,7 @@ const StudentForm = ({
 };
 
 StudentForm.propTypes = {
-  formTitle: PropTypes.string,
+  formTitle: PropTypes.string.isRequired,
   firebaseKey: PropTypes.string,
   name: PropTypes.string,
   teacher: PropTypes.string,
