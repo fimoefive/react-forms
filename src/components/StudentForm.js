@@ -20,7 +20,7 @@ const StudentForm = ({
     name: name || '',
     teacher: teacher || '',
     grade: grade || '',
-    firebase: firebaseKey || null
+    firebaseKey: firebaseKey || null
   });
 
   const handleInput = (e) => {

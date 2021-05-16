@@ -26,8 +26,8 @@ const deleteStudent = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const updateStudent = (firebaseKey, obj) => new Promise((resolve, reject) => {
-  axios.patch(`${dbURL}/students/${firebaseKey}.json`, obj)
+const updateStudent = (obj) => new Promise((resolve, reject) => {
+  axios.patch(`${dbURL}/students/${obj.firebaseKey}.json`, obj)
     .then(() => getStudents().then(resolve))
     .catch((error) => reject(error));
 });
